@@ -4,22 +4,43 @@ body {
     padding: 0;
     box-sizing: border-box;
     color: #333;
+    background-color: #f4f4f4;
+    scroll-behavior: smooth;
 }
 
 header {
     background-color: #2c3e50;
     color: white;
-    padding: 20px 0;
+    padding: 30px 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2.8em;
+    animation: slideIn 1s ease-in-out;
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1.3em;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e67e22;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #d35400;
+    transform: scale(1.1);
 }
 
 nav {
@@ -43,10 +64,11 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: #e67e22;
 }
 
 .section {
@@ -54,6 +76,8 @@ nav ul li a:hover {
     margin: 20px auto;
     max-width: 1000px;
     border-bottom: 1px solid #ccc;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 h2 {
@@ -70,10 +94,11 @@ footer {
 footer a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 footer a:hover {
-    text-decoration: underline;
+    color: #e67e22;
 }
 
 .experience-item, .project-item {
@@ -83,4 +108,31 @@ footer a:hover {
 .experience-item ul, .project-item ul {
     margin: 0;
     padding-left: 20px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s forwards;
 }
